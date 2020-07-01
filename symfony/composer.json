@@ -5,13 +5,25 @@
         "php": "^7.1.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "doctrine/annotations": "^1.10",
+        "gedmo/doctrine-extensions": "^2.4",
+        "lexik/jwt-authentication-bundle": "^2.8",
+        "paknahad/jsonapi-bundle": "3.0.0",
+        "phootwork/lang": "^2.0",
+        "ramsey/uuid-doctrine": "^1.6",
+        "sensio/framework-extra-bundle": "^5.5",
         "symfony/console": "4.4.*",
         "symfony/dotenv": "4.4.*",
         "symfony/flex": "^1.3.1",
         "symfony/framework-bundle": "4.4.*",
+        "symfony/orm-pack": "^1.0",
+        "symfony/swiftmailer-bundle": "^3.4",
+        "symfony/translation": "4.4.*",
+        "symfony/validator": "4.4.*",
         "symfony/yaml": "4.4.*"
     },
     "require-dev": {
+        "symfony/maker-bundle": "^1.19"
     },
     "config": {
         "preferred-install": {

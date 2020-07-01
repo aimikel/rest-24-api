@@ -1,0 +1,135 @@
+{
+    "info": {
+        "name": "json_api",
+        "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
+    },
+    "item": [
+        {
+            "name": "Asset",
+            "description": "",
+            "item": [
+                {
+                    "name": "Asset List",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": "",
+                        "url": {
+                            "raw": "{{host}}\/assets\/",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "\/assets",
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Add Asset",
+                    "request": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"data\": {\n        \"type\": \"assets\",\n        \"attributes\": {\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"createdAt\": \"datetime\",\n            \"updatedAt\": \"datetime\"\n        },\n        \"relationships\": []\n    }\n}"
+                        },
+                        "url": {
+                            "raw": "{{host}}\/assets\/",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "\/assets",
+                                ""
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Edit Asset",
+                    "request": {
+                        "method": "PATCH",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"data\": {\n        \"type\": \"assets\",\n        \"id\": \"1\",\n        \"attributes\": {\n            \"name\": \"string\",\n            \"description\": \"string\",\n            \"createdAt\": \"datetime\",\n            \"updatedAt\": \"datetime\"\n        },\n        \"relationships\": []\n    }\n}"
+                        },
+                        "url": {
+                            "raw": "{{host}}\/assets\/1",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "\/assets",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Asset",
+                    "request": {
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": "",
+                        "url": {
+                            "raw": "{{host}}\/assets\/1",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "\/assets",
+                                "1"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "Get Asset",
+                    "request": {
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": "",
+                        "url": {
+                            "raw": "{{host}}\/assets\/1",
+                            "host": [
+                                "{{host}}"
+                            ],
+                            "path": [
+                                "\/assets",
+                                "1"
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
