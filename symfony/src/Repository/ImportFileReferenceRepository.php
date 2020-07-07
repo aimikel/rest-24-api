@@ -1,18 +1,16 @@
 <?php
+
 namespace App\Repository;
 
+use App\Entity\ImportFileReference;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Mapping;
 use Doctrine\Persistence\ManagerRegistry;
-use App\Entity\Asset;
-use Doctrine\ORM\EntityRepository;
 
-class AssetRepository extends ServiceEntityRepository
+class ImportFileReferenceRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Asset::class);
+        parent::__construct($registry, ImportFileReference::class);
     }
 
     public function findAll()
@@ -20,7 +18,7 @@ class AssetRepository extends ServiceEntityRepository
         return parent::findAll();
     }
 
-    public function findOneByName(string $name): ?Asset
+    public function findImportFileReferenceByName(string $name)
     {
         return $this->createQueryBuilder('d')
             ->andWhere('d.name = :val')
@@ -28,6 +26,5 @@ class AssetRepository extends ServiceEntityRepository
             ->getQuery()
             ->getOneOrNullResult();
     }
-
 
 }

@@ -52,6 +52,8 @@ Extra Symfony bundles were added inside the `php-fpm` container after the initia
 * Gedmo doctrine extensions for Timestampable (among other field types)
 * Symfony Maker Bundle
 * phootwork/lang
+* Symfony forms and validator
+* CSV reader
 
 * Note: Change `.env` file record in the Doctrine section with the right DB credentials as shown below:
 `DATABASE_URL=mysql://symfony:symfony@db:3306/symfony?serverVersion=5.7`
@@ -63,6 +65,12 @@ Next, inside the php container, run the following commands:
 
 ```bash
     php bin/console doctrine:migrations:migrate
+```
+Inside the php container add the JWT key configuration using the commands below to generate private and public keys:
+```bash
+    mkdir config/jwt
+    openssl genrsa -out config/jwt/private.pem -aes256 4096
+    openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
 ```
 
 
