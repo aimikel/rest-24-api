@@ -1,12 +1,9 @@
 <?php
 namespace App\Repository;
 
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
-use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Mapping;
-use Doctrine\Persistence\ManagerRegistry;
 use App\Entity\Asset;
-use Doctrine\ORM\EntityRepository;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Persistence\ManagerRegistry;
 
 class AssetRepository extends ServiceEntityRepository
 {
