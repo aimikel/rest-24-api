@@ -4,8 +4,6 @@ namespace App\Service;
 
 use App\Entity\Asset;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\HttpFoundation\File\Exception\ExtensionFileException;
-use Symfony\Component\HttpFoundation\File\Exception\IniSizeFileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use TangoMan\CSVReaderBundle\Service\CSVReaderService;
 
@@ -25,37 +23,28 @@ class File implements UploaderInterface
 
     public function handleFile(UploadedFile $file): bool
     {
-        $this->checkIsValid($file);
+        if ($this->checkIsValid($file)) {
+            $file = $file->move($this->getUploadDir(), $this->setFileName());
 
-        $file = $file->move($this->getUploadDir(), $this->setFileName());
+            return $this->parseFile($file);
+        }
 
-        return $this->parseFile($file);
+        return false;
     }
 
     public function checkIsValid(UploadedFile $file): bool
     {
-        $this->checkExtension($file);
-        $this->checkSize($file);
-
-        return true;
+        return $this->checkExtension($file) && $this->checkSize($file);
     }
 
     private function checkExtension(UploadedFile $file): bool
     {
-        if (self::$VALID_FILE_EXTENSION !== $file->getClientMimeType()) {
-            throw new ExtensionFileException('Non valid file extension');
-        }
-
-        return true;
+        return self::$VALID_FILE_EXTENSION == $file->getClientMimeType();
     }
 
     private function checkSize(UploadedFile $file): bool
     {
-        if (self::$VALID_FILE_SIZE < $file->getSize()) {
-            throw new IniSizeFileException('File size too big');
-        }
-
-        return true;
+        return self::$VALID_FILE_SIZE > $file->getSize();
     }
 
     public function getUploadDir(): string

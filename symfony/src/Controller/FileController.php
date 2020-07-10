@@ -19,12 +19,10 @@ class FileController extends AbstractController
         /** @var UploadedFile $file */
         $file = $request->files->get('file');
 
-        try {
-            $fileService->handleFile($file);
-
+        if ($fileService->handleFile($file)) {
             return Response::create();
-        } catch (\Exception $exception) {
-            return Response::create($exception->getMessage(), 422);
         }
+
+        return Response::create('An error occurred', 422);
     }
 }

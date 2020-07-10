@@ -25,7 +25,8 @@
         "tangoman/csv-reader-bundle": "^1.0"
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.19"
+        "symfony/maker-bundle": "^1.19",
+        "symfony/phpunit-bridge": "^5.1"
     },
     "config": {
         "preferred-install": {
