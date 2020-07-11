@@ -20,7 +20,7 @@ class FileController extends AbstractController
         $file = $request->files->get('file');
 
         if ($fileService->handleFile($file)) {
-            return Response::create();
+            return Response::create('', 204);
         }
 
         return Response::create('An error occurred', 422);
