@@ -9,24 +9,26 @@ Aimilia Kelaidi (aim.kelaidi@gmail.com)
 ### Introduction
 
 This application is rest api project built using PHP, Symfony 4 framework and a complete Docker stack. The API 
-supports HTTP requests with HTTP verbs `GET`, `POST`, `PUT`, `DELETE` and an extra `POST` endpoint for uploading a file for database 
+supports HTTP requests with HTTP verbs `GET`, `POST`, `PATCH`, `DELETE` and an extra `POST` endpoint for uploading a file for database 
 population.
 
 The endpoints use JWT Authentication and therefore they can be used only after registering a user and receiving a JWT token.
 
 ### Requirements
 
-- Install [Docker][https://docs.docker.com/get-docker/]
+- Install [Docker](https://docs.docker.com/get-docker/)
 
 ---
 ### Installation
 
-* Just clone this repository with command:
+* Clone this repository with command:
 ```bash
     $ git clone https://github.com/aimikel/rest-24-api.git
 ```
 
 * Add the record `127.0.0.1 symfony.localhost` into your hosts file.
+
+* Note: If you want to change the database credentials, you need to change both environment variables for `db` service in `docker-compose.yml` and  `DATABASE_URL` in `symfony\.env` file accordingly before continuing to the next step.
 
 * Next, run commands:
 ```bash
@@ -38,7 +40,6 @@ The endpoints use JWT Authentication and therefore they can be used only after r
     $ openssl genrsa -out config/jwt/private.pem -aes256 4096
     $ openssl rsa -pubout -in config/jwt/private.pem -out config/jwt/public.pem
 ```
-* Note: If you want to change the database credentials, you need to change both environment variables for `db` service in `docker-compose.yml` and  `DATABASE_URL` in `symfony\.env` file accordingly.
 
 ---
 
@@ -67,7 +68,7 @@ Use the following commands to run phpunit tests:
 ```
     {
         "username": "testUsername",
-	    "password": "testPassword"
+	"password": "testPassword"
     }
 ```
 and grab the `JWT token` that is returned and include it in every endpoint call as an Authorization Bearer Token.
@@ -87,7 +88,7 @@ and grab the `JWT token` that is returned and include it in every endpoint call 
 ```
 
 Alternatively you can make batch Asset uploads to the database using the `POST` endpoint `symfony.localhost/files/` by uploading a csv file into key `file` of the body.
-You can find a sample csv file inside the `exampleFiles` directory.
+You can find a sample csv file inside the `symfony/exampleFiles` directory.
 
 - Use the `GET` endpoint `symfony.localhost/assets/` to retrieve all existing Assets from the database.
 
