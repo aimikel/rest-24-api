@@ -111,7 +111,13 @@ You can find a sample csv file inside the `symfony/exampleFiles` directory.
 
 - Use the `DELETE` endpoint `symfony.localhost/assets/ASSET_NAME` to remove an Asset from the database.
 
+### To do
 
+There are some more things that would need to be added for considering this app a full RESTful API and a well build application. I can see the following:
+
+- `FileUpload` should ideally be seperated in two independent processes (eg. upload and parsing as a Queue)
+- Configurable environment variables
+- Caching mechanism for `GET` endpoint
 
 
 
